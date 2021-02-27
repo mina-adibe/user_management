@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+//import Item from "antd/lib/list/Item";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addUser } from "../redux/actions/userAction";
+
 import "antd/dist/antd.css";
 import { Form, Input, Button, Layout, Select, Upload, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-import Item from "antd/lib/list/Item";
 
 const { Header, Content } = Layout;
 const { Option } = Select;
@@ -25,7 +30,7 @@ const tailLayout = {
   },
 };
 
-const ModifyUses = () => {
+const ModifyUses = (props) => {
   //
   // getting countries by  axois
   //
@@ -39,7 +44,7 @@ const ModifyUses = () => {
   //--------------------------------------------------------
   // upload file
   const [fileList, updateFileList] = useState([]);
-  const props = {
+  const propsUpload = {
     fileList,
     beforeUpload: (file) => {
       if (file.type !== "image/JPG" || file.type !== "image/jpg") {
@@ -64,8 +69,14 @@ const ModifyUses = () => {
   };
   //--------------------------------------------------------
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = ({ username, phonenumber, country, email }) => {
+    props.addUser({ username, phonenumber, country, email });
+    //console.log("Success:", username, phonenumber, country, email);
+    //console.log("props :", props);
+    //console.log(props.users);
+    localStorage.setItem("users", JSON.stringify(props.users));
+    let users = localStorage.getItem("users");
+    console.log(JSON.parse(users));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -135,8 +146,8 @@ const ModifyUses = () => {
               {/*------------------------------------------------------------------ */}
 
               <Form.Item
-                name="select"
-                label="Select"
+                name="country"
+                label="country"
                 hasFeedback
                 rules={[
                   {
@@ -163,7 +174,7 @@ const ModifyUses = () => {
                 getValueFromEvent={normFile}
                 extra="longgggggggggggggggggggggggggggggggggg"
               >
-                <Upload {...props}>
+                <Upload {...propsUpload}>
                   <Button icon={<UploadOutlined />}>Upload png only</Button>
                 </Upload>
               </Form.Item>
@@ -177,7 +188,7 @@ const ModifyUses = () => {
 
               <Form.Item {...tailLayout}>
                 <Button type="primary" htmlType="submit">
-                  Submit
+                  save
                 </Button>
               </Form.Item>
               {/*------------------------------------------------------------------ */}
@@ -189,4 +200,24 @@ const ModifyUses = () => {
   );
 };
 
-export default ModifyUses;
+//redux
+
+ModifyUses.propTypes = {
+  users: PropTypes.array.isRequired,
+  addUser: PropTypes.func.isRequired,
+};
+
+//what part of space we expose to our component
+function mapStateToProps(state) {
+  return {
+    users: state.user,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  //console.log(props);
+  return {
+    addUser: (data) => dispatch(addUser(data)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModifyUses);
