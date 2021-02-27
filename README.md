@@ -1,5 +1,8 @@
 # user managment for LEAN NODE
 
+![Image of app](https://raw.githubusercontent.com/mina-adibe/user_management/master/src/listofusers.PNG)
+
+
 ## functionality (what is already completed ):
 
 
