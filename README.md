@@ -43,6 +43,12 @@ lenght of char min= 10 max = 100
 ## save new recordes in fake database using redux 
 ## save the updated database to local storage 
 
+
+### comming feature :
+1-edit record throught redux 
+2-add location fiels with custom map 
+3-add search for users 
+
 # teach and packages  :
 ## react : https://www.npmjs.com/package/react
 ## redux + react-redux  : https://www.npmjs.com/package/redux | https://www.npmjs.com/package/react-redux
