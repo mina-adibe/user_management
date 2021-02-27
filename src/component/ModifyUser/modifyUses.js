@@ -9,11 +9,12 @@ import { addUser } from "../redux/actions/userAction";
 
 import "antd/dist/antd.css";
 import { Form, Input, Button, Layout, Select, Upload, message } from "antd";
-import { UploadOutlined } from "@ant-design/icons";
+import { UploadOutlined, InboxOutlined } from "@ant-design/icons";
 
 const { Header, Content } = Layout;
 const { Option } = Select;
 const { TextArea } = Input;
+const { Dragger } = Upload;
 
 // for layout
 const layout = {
@@ -44,21 +45,6 @@ const ModifyUses = (props) => {
 
   //--------------------------------------------------------
   // upload file
-  const [fileList, updateFileList] = useState([]);
-  const propsUpload = {
-    fileList,
-    beforeUpload: (file) => {
-      if (file.type !== "image/JPG" || file.type !== "image/jpg") {
-        message.error(`${file.name} is not a png or jpg file`);
-      }
-      return file.type === "image/png";
-    },
-    onChange: (info) => {
-      console.log(info.fileList);
-      // file.status is empty when beforeUpload return false
-      updateFileList(info.fileList.filter((file) => !!file.status));
-    },
-  };
   const normFile = (e) => {
     console.log("Upload event:", e);
 
@@ -184,23 +170,26 @@ const ModifyUses = (props) => {
                 </Select>
               </Form.Item>
               {/*------------------------------------------------------------------ */}
-              <Form.Item
-                name="upload"
-                label="Upload"
-                valuePropName="fileList"
-                getValueFromEvent={normFile}
-                extra="longgggggggggggggggggggggggggggggggggg"
-              >
-                <Upload
-                  name="logo"
-                  accept="image/png, image/jpeg"
-                  action="/upload.do"
-                  listType="picture"
+              <Form.Item label="Dragger">
+                <Form.Item
+                  name="dragger"
+                  valuePropName="fileList"
+                  getValueFromEvent={normFile}
+                  noStyle
                 >
-                  <Button icon={<UploadOutlined />}>Click to upload</Button>
-                </Upload>
+                  <Upload.Dragger name="files" action="/upload.do">
+                    <p className="ant-upload-drag-icon">
+                      <InboxOutlined />
+                    </p>
+                    <p className="ant-upload-text">
+                      Click or drag file to this area to upload
+                    </p>
+                    <p className="ant-upload-hint">
+                      Support for a single or bulk upload.
+                    </p>
+                  </Upload.Dragger>
+                </Form.Item>
               </Form.Item>
-
               {/*------------------------------------------------------------------ */}
               <Form.Item label="brief" name="brief">
                 <TextArea
