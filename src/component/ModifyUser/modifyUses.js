@@ -18,16 +18,16 @@ const { TextArea } = Input;
 // for layout
 const layout = {
   labelCol: {
-    span: 8,
+    span: 7,
   },
   wrapperCol: {
-    span: 16,
+    span: 10,
   },
 };
 const tailLayout = {
   wrapperCol: {
     offset: 8,
-    span: 16,
+    span: 5,
   },
 };
 
@@ -116,6 +116,18 @@ const ModifyUses = (props) => {
                   {
                     required: true,
                     message: "Please input your username!",
+                  },
+                  {
+                    min: 8,
+                    message: "min character 12",
+                  },
+                  {
+                    max: 16,
+                    message: "max character 16",
+                  },
+                  {
+                    whitespace: true,
+                    message: "whitespace is not allaowed",
                   },
                 ]}
               >
