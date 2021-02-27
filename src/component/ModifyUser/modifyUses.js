@@ -131,7 +131,7 @@ const ModifyUses = (props) => {
                   },
                 ]}
               >
-                <Input />
+                <Input placeholder="user name" />
               </Form.Item>
               {/*------------------------------------------------------------------ */}
 
@@ -145,7 +145,7 @@ const ModifyUses = (props) => {
                   },
                 ]}
               >
-                <Input type="number" />
+                <Input type="number" placeholder="phone number" />
               </Form.Item>
               {/*------------------------------------------------------------------ */}
 
@@ -159,7 +159,7 @@ const ModifyUses = (props) => {
                   },
                 ]}
               >
-                <Input type="email" />
+                <Input type="email" placeholder="email" />
               </Form.Item>
               {/*------------------------------------------------------------------ */}
 
@@ -184,7 +184,6 @@ const ModifyUses = (props) => {
                 </Select>
               </Form.Item>
               {/*------------------------------------------------------------------ */}
-
               <Form.Item
                 name="upload"
                 label="Upload"
@@ -192,14 +191,24 @@ const ModifyUses = (props) => {
                 getValueFromEvent={normFile}
                 extra="longgggggggggggggggggggggggggggggggggg"
               >
-                <Upload {...propsUpload}>
-                  <Button icon={<UploadOutlined />}>Upload png only</Button>
+                <Upload
+                  name="logo"
+                  accept="image/png, image/jpeg"
+                  action="/upload.do"
+                  listType="picture"
+                >
+                  <Button icon={<UploadOutlined />}>Click to upload</Button>
                 </Upload>
               </Form.Item>
 
               {/*------------------------------------------------------------------ */}
               <Form.Item label="brief" name="brief">
-                <TextArea showCount={true} maxLength={100} minLength={10} />
+                <TextArea
+                  showCount={true}
+                  maxLength={100}
+                  minLength={10}
+                  placeholder="brief"
+                />
               </Form.Item>
 
               {/*------------------------------------------------------------------ */}
