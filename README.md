@@ -17,6 +17,8 @@
 2. delete functionality for each single recorde .
 3. warnning msg when apply to delete any recorde.
 4. pagination and display 10 item per page 
+5. responsive 
+
 
 ## second page : modify user:
 ### filelds :
@@ -54,7 +56,7 @@ lenght of char min= 10 max = 100
 ## save the updated database to local storage 
 
 
-### comming feature :
+### comming features :
 1. edit record throught redux 
 2. add location fiels with custom map 
 3. add search for users 
