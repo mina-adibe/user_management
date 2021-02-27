@@ -16,3 +16,10 @@ export function addUser(data) {
     data: data,
   };
 }
+
+export function editUser(data) {
+  return {
+    type: types.EDIT_USER,
+    data: data,
+  };
+}
