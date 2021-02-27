@@ -3,6 +3,11 @@
 ![Image of app](https://raw.githubusercontent.com/mina-adibe/user_management/master/src/listofusers.PNG)
 
 
+![Image of app](https://raw.githubusercontent.com/mina-adibe/user_management/master/src/modify.PNG)
+
+
+
+
 ## functionality (what is already completed ):
 
 
