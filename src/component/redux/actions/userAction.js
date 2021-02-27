@@ -10,8 +10,9 @@ export function deleteUser(id) {
   };
 }
 
-/**
- export function deleteUser(user) {
-  return { type: types.DETETE_USER, user: user };
+export function addUser(data) {
+  return {
+    type: types.ADD_USER,
+    data: data,
+  };
 }
-*/
