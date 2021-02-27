@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import shortid from "shortid";
 
 //import Item from "antd/lib/list/Item";
 import PropTypes from "prop-types";
@@ -70,7 +71,13 @@ const ModifyUses = (props) => {
   //--------------------------------------------------------
 
   const onFinish = ({ username, phonenumber, country, email }) => {
-    props.addUser({ username, phonenumber, country, email });
+    props.addUser({
+      id: shortid.generate(),
+      username,
+      phonenumber,
+      country,
+      email,
+    });
     //console.log("Success:", username, phonenumber, country, email);
     //console.log("props :", props);
     //console.log(props.users);
