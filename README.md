@@ -1,11 +1,13 @@
 # user managment for LEAN NODE
 
-## functionality (what is alreafy completes ):
+## functionality (what is already completed ):
+
+
 ## first page : list of users 
 
-1-display table of users from redux 
-2-delete functionality for each single recorde 
-3-warnning msg when applay to delete any recorde
+1-display table of users from redux .
+2-delete functionality for each single recorde .
+3-warnning msg when apply to delete any recorde.
 4-pagination and display 10 item per page 
 
 ## second page : modify user:
@@ -30,7 +32,7 @@ b-email format
 validation : 
 a-required 
 
-**Note:to get the countries by using axios + hooks **
+**Note: get the countries by using axios + useState + useEffect hooks **
 
 5-uplading photo by dragging 
 optional 
@@ -48,6 +50,7 @@ lenght of char min= 10 max = 100
 1-edit record throught redux 
 2-add location fiels with custom map 
 3-add search for users 
+
 
 # teach and packages  :
 ## react : https://www.npmjs.com/package/react
