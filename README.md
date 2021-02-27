@@ -68,7 +68,7 @@ lenght of char min= 10 max = 100
 ## react router : https://www.npmjs.com/package/react-router
 ## ant design : https://www.npmjs.com/package/antd
 ## react hooks  
-## generte short id  :https://www.npmjs.com/package/shortid
+## generate short id  :https://www.npmjs.com/package/shortid
 
 
 
